@@ -51,6 +51,7 @@
                                  Width="60"
                                  MaxLength="5"/>
                         <ComboBox Name="PingIntervalUnits" Width="100" Margin="10,0,0,0">
+                            <ComboBoxItem Content="milliseconds"/>
                             <ComboBoxItem Content="seconds" IsSelected="True"/>
                             <ComboBoxItem Content="minutes"/>
                             <ComboBoxItem Content="hours"/>

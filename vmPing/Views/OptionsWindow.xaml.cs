@@ -68,7 +68,7 @@ namespace vmPing.Views
         private void PopulateGeneralOptions()
         {
             string pingIntervalUnits;
-            int pingIntervalDivisor;
+            int pingIntervalDivisor = 1;
             int pingInterval = ApplicationOptions.PingInterval;
             int pingTimeout = ApplicationOptions.PingTimeout;
 
@@ -263,6 +263,9 @@ namespace vmPing.Views
 
             switch (PingIntervalUnits.Text)
             {
+                case "milliseconds":
+                    multiplier = 1;
+                    break;
                 case "seconds":
                     multiplier = 1000;
                     break;
