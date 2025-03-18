@@ -1,17 +1,14 @@
 vmPing
 ======
-[![Donate to this project using PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat)](https://paypal.me/SmithRyn/15)
-[![Join the Discord chat](https://img.shields.io/discord/817276291262447697.svg?style=flat)](https://discord.gg/Guf66Zk6US)
-[![Total downloads](https://img.shields.io/github/downloads/r-smith/vmping/total)](https://github.com/R-Smith/vmPing/releases)
 
-vmPing (Visual Multi Ping) is a graphical ping utility for monitoring multiple hosts.  Numerous host monitors can be added and removed, and each monitor dynamically resizes with the application window.  Color-coding allows you to tell at a glance the status of each host.  In addition to standard ICMP pings, you can also perform a TCP 'port ping', where the application continuously connects to a specified port and displays whether or not the port is open.  A fast trace route utility and a basic packet generator / stress tester is also included.
+vmPing (Visual Multi Ping) is a graphical ping utility for monitoring multiple hosts.  Numerous host monitors can be added and removed, and each monitor dynamically resizes with the application window.  Color-coding allows you to tell at a glance the status of each host.  In addition to standard ICMP pings, you can also perform a TCP 'port ping', where the application continuously connects to a specified port and displays whether or not the port is open.  A fast trace route utility and a basic packet generator / stress tester is also included. This is based on Ryan Smith work and I do not take any credit for everything done before 1.3.23.1.
 
-**[Click here to download the latest release](https://github.com/R-Smith/vmPing/releases/latest/download/vmPing.exe)**
-##### (1.3.23 released on April 13, 2022)
+**Downlad the latest release from the .exe on the Repo**
+##### (1.3.23.1 released on March 18, 2025)
 
 ##### Notes
 * There is no installer.  Just run the .exe.
-* .NET 4.5 or greater is required.
+* .NET 4.8 or greater is required.
 
 
 Screenshots
@@ -28,6 +25,10 @@ Screenshots
 
 Recent Changes
 --------------
+### Version 1.3.23.1
+* Updated the application to use .NET Framework 4.8
+* Added support for sub-second pings
+
 ### Version 1.3.23
 * Fix: Force software rendering. This should fix high GPU usage on some video cards.
 * Fix: Loading a favorite on startup was not using the column count for the favorite.
