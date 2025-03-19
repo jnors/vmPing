@@ -189,5 +189,5 @@ Features
 
 Donations
 ---------
-If this tool has been useful to you, consider donating using PayPal.
+If this tool has been useful to you, consider donating to Ryan Smith using PayPal.
 [![Donate to this project using PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat)](https://paypal.me/SmithRyn/15)
