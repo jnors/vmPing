@@ -82,17 +82,30 @@ namespace vmPing.Views
                 pingIntervalUnits = "minutes";
                 pingIntervalDivisor = 60000;
             }
-            else
+            else if (ApplicationOptions.PingInterval >= 1000 && ApplicationOptions.PingInterval % 1000 == 0)
             {
                 pingIntervalUnits = "seconds";
                 pingIntervalDivisor = 1000;
             }
+            else
+            {
+                pingIntervalUnits = "milliseconds";
+            }
 
             pingInterval /= pingIntervalDivisor;
-            pingTimeout /= 1000;
-
+            if (pingTimeout >= 1000)
+            {
+                pingTimeout /= 1000;
+                PingTimeout.Text = pingTimeout.ToString();
+                PingTimeoutUnits.Text = "seconds";
+            }
+            else
+            {
+                PingTimeout.Text = pingTimeout.ToString();
+                PingTimeoutUnits.Text = "milliseconds";
+            }
+            
             PingInterval.Text = pingInterval.ToString();
-            PingTimeout.Text = pingTimeout.ToString();
             AlertThreshold.Text = ApplicationOptions.AlertThreshold.ToString();
             PingIntervalUnits.Text = pingIntervalUnits;
 
@@ -285,10 +298,14 @@ namespace vmPing.Views
 
             // Ping timeout.
             int pingTimeout;
-            if (int.TryParse(PingTimeout.Text, out pingTimeout) && pingTimeout > 0 && pingTimeout <= 60)
-                pingTimeout *= 1000;
+            if (int.TryParse(PingTimeout.Text, out pingTimeout) && pingTimeout > 0)
+            {
+                if(PingTimeoutUnits.Text == "seconds")
+                    pingTimeout *= 1000;
+            }
             else
                 pingTimeout = Constants.DefaultTimeout;
+            
             ApplicationOptions.PingTimeout = pingTimeout;
 
             // Alert threshold.

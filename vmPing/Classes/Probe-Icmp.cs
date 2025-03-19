@@ -40,7 +40,7 @@ namespace vmPing.Classes
                         if (cancellationToken.IsCancellationRequested) return;
 
                         // Reply received.
-                        if (reply.Status == IPStatus.Success)
+                        if (reply.Status == IPStatus.Success && reply.RoundtripTime<=ApplicationOptions.PingTimeout)
                         {
                             Statistics.Received++;
                             IndeterminateCount = 0;
@@ -141,12 +141,19 @@ namespace vmPing.Classes
                 switch (pingReply.Status)
                 {
                     case IPStatus.Success:
-                        pingOutput.Append("Reply from ");
-                        pingOutput.Append(pingReply.Address.ToString());
-                        if (pingReply.RoundtripTime < 1)
-                            pingOutput.Append("  [<1ms]");
+                        if(pingReply.RoundtripTime < ApplicationOptions.PingTimeout)
+                        {
+                            pingOutput.Append("Reply from ");
+                            pingOutput.Append(pingReply.Address.ToString());
+                            if (pingReply.RoundtripTime < 1)
+                                pingOutput.Append("  [<1ms]");
+                            else
+                                pingOutput.Append($"  [{pingReply.RoundtripTime} ms]");
+                        }
                         else
-                            pingOutput.Append($"  [{pingReply.RoundtripTime} ms]");
+                        {
+                            pingOutput.Append("Request timed out.");
+                        }
                         break;
                     case IPStatus.DestinationHostUnreachable:
                         pingOutput.Append("Reply  [Host unreachable]");

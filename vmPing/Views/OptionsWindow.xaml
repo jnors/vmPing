@@ -50,7 +50,7 @@
                                  PreviewTextInput="NumericTextbox_PreviewTextInput"
                                  Width="60"
                                  MaxLength="5"/>
-                        <ComboBox Name="PingIntervalUnits" Width="100" Margin="10,0,0,0">
+                        <ComboBox Name="PingIntervalUnits" Width="120" Margin="10,0,0,0">
                             <ComboBoxItem Content="milliseconds"/>
                             <ComboBoxItem Content="seconds" IsSelected="True"/>
                             <ComboBoxItem Content="minutes"/>
@@ -67,9 +67,11 @@
                         <TextBox Name="PingTimeout"
                                  PreviewTextInput="NumericTextbox_PreviewTextInput"
                                  Width="60"
-                                 MaxLength="2"/>
-                        <TextBlock Text="seconds"
-                                   Margin="10,0,0,0"/>
+                                 MaxLength="4"/>
+                        <ComboBox Name="PingTimeoutUnits" Width="120" Margin="10,0,0,0">
+                            <ComboBoxItem Content="milliseconds"/>
+                            <ComboBoxItem Content="seconds" IsSelected="True"/>
+                        </ComboBox>
                     </StackPanel>
 
                     <Separator DockPanel.Dock="Top" Height="1" Background="#ccc" Margin="0,20,0,5"/>
